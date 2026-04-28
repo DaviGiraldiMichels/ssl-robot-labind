@@ -1,10 +1,16 @@
 # RadioComm
 Este projeto tem como objetivo mostrar a capacidade de uma placa <small>_[STM32F103C8T6](https://www.st.com/en/microcontrollers-microprocessors/stm32f103c8.html)_</small> se comunicar com uma placa <small>_[Arduino Uno R3](https://docs.arduino.cc/hardware/uno-rev3/)_</small> via rádio, usando transceivers <small>_[nRF24l01](https://cdn.sparkfun.com/datasheets/Wireless/Nordic/nRF24L01_Product_Specification_v2_0.pdf)_</small>. O Projeto utiliza da biblioteca <small>_[RF24](https://github.com/nRF24/RF24/tree/stm32cube-support)_</small> para fazer a comunicação entre as placas com o transceiver.
 
-<img src="./images/STM32F103C8T6.jpg" alt="STM32F103C8T6" width="200" />
-<img src="./images/ARDUINO_R3.png" alt="Arduino Uno R3" width="200" />
-<img src="./images/nRF24l01.png" alt="STM32F103C8T6" width="200" />
-<img src="./images/nRF24l01-Adapter.jpg" alt="STM32F103C8T6" width="200" />
+<style>
+    .row { display:flex; gap:12px; align-items:center; }
+    .row > * { padding:4px; }
+</style>
+<div class="row">
+    <img src="./images/STM32F103C8T6.jpg" alt="STM32F103C8T6" width="200" />
+    <img src="./images/ARDUINO_R3.png" alt="Arduino Uno R3" width="200" />
+    <img src="./images/nRF24l01.png" alt="STM32F103C8T6" width="200" />
+    <img src="./images/nRF24l01-Adapter.jpg" alt="STM32F103C8T6" width="200" />
+</div>
 
 ## Configuração dos Pinos:
 
