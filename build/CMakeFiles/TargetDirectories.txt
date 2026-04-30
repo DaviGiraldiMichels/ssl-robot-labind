@@ -1,3 +1,0 @@
-C:/Users/RTO/Documents/UDESC/SSL_bots/STM32_RF24/build/CMakeFiles/STM32BluePillRadio.dir
-C:/Users/RTO/Documents/UDESC/SSL_bots/STM32_RF24/build/CMakeFiles/edit_cache.dir
-C:/Users/RTO/Documents/UDESC/SSL_bots/STM32_RF24/build/CMakeFiles/rebuild_cache.dir
