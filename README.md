@@ -52,7 +52,7 @@ Para realizar a compilação correta da biblioteca RF24, foi utilizado um wrappe
 ### Comandos para compilação e escrita em Windows
 ```shell
 # Gerar arquivos para a build
-cmake -G Ninja -DCMAKE_TOOLCHAIN_FILE=..\cmake\gcc-arm-none-eabi.cmake ..
+cmake -G Ninja -DSTM32_MODEL=F1 -DCMAKE_TOOLCHAIN_FILE=..\cmake\gcc-arm-none-eabi.cmake ..
 
 # Compilar e gerar aquivo STM32BluePillRadio.elf.
 cmake --build .
@@ -69,7 +69,7 @@ st-flash --reset write firmware.bin 0x08000000
 ### Comandos para compilação e escrita em Linux
 ```shell
 # Gerar arquivos para a build
-cmake -DCMAKE_TOOLCHAIN_FILE=../cmake/gcc-arm-none-eabi.cmake ..
+cmake -DSTM32_MODEL=F1 -DCMAKE_TOOLCHAIN_FILE=../cmake/gcc-arm-none-eabi.cmake ..
 
 # Compilar e gerar aquivo STM32BluePillRadio.elf.
 cmake --build .
