@@ -66,3 +66,20 @@ st-flash erase
 # Escrever firmware novo a placa.
 st-flash --reset write firmware.bin 0x08000000
 ```
+### Comandos para compilação e escrita em Linux
+```shell
+# Gerar arquivos para a build
+cmake -DCMAKE_TOOLCHAIN_FILE=../cmake/gcc-arm-none-eabi.cmake ..
+
+# Compilar e gerar aquivo STM32BluePillRadio.elf.
+cmake --build .
+
+# Gerar firmware.
+arm-none-eabi-objcopy -O binary STM32BluePillRadio.elf firmware.bin
+
+# Apagar firmware antigo.
+st-flash erase
+
+# Escrever firmware novo a placa.
+st-flash --reset write firmware.bin 0x08000000
+```
