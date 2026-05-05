@@ -7,7 +7,6 @@
 extern "C" {
 
 #include <main.h>
-#include <stm32f1xx_hal.h>
 
 }
 
@@ -39,10 +38,7 @@ void start(void) {
     spi1_handle.Init.TIMode = SPI_TIMODE_DISABLE;
     spi1_handle.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
     spi1_handle.Init.CRCPolynomial = 10;
-    if (HAL_SPI_Init(&spi1_handle) != HAL_OK){
-        Error_Handler();
-    }
-    // 1075
+    if (HAL_SPI_Init(&spi1_handle) != HAL_OK) Error_Handler();
 
     RF24_SPI radio_spi;
     radio_spi.begin(&spi1_handle);

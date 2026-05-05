@@ -1,7 +1,6 @@
 set(TOOLCHAIN_PREFIX arm-none-eabi-)
 set(CMAKE_SYSTEM_NAME Generic)
-set(CMAKE_SYSTEM_PROCESSOR cortex-m3)
-
+set(CMAKE_SYSTEM_PROCESSOR ${STM32_CORE})
 
 set(CMAKE_ASM_COMPILER ${TOOLCHAIN_PREFIX}as)
 set(CMAKE_C_COMPILER ${TOOLCHAIN_PREFIX}gcc)
@@ -15,10 +14,11 @@ set(CMAKE_EXECUTABLE_SUFFIX_CXX .elf)
 
 set(CMAKE_TRY_COMPILE_TARGET_TYPE STATIC_LIBRARY)
 
-set(CPU_FLAGS "-mcpu=cortex-m3 -mthumb")
+set(CPU_FLAGS "-mcpu=${STM32_CORE} -mthumb")
 # set(CPU_FLAGS "-mcpu=cortex-m3 -mthumb -mfpu=fpv4-sp-d16 -mfloat-abi=hard")
 # include(${CMAKE_CURRENT_LIST_DIR}/arm-none-eabi.cmake)
 
+# message(STATUS "CPU_FLAGS '${CPU_FLAGS}'")
 
 set(WARNINGS "-Wall -Wextra -Wfatal-errors -Wno-unused-parameter -Werror")
 set(C_FLAGS "-fdata-sections -ffunction-sections -MMD -MP")

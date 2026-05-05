@@ -49,27 +49,10 @@ Para realizar a compilação correta da biblioteca RF24, foi utilizado um wrappe
 * `target_link_libraries(${CMAKE_PROJECT_NAME} PRIVATE -T${CMAKE_SOURCE_DIR}/linker/STM32F103.ld)` Especifica qual ["script de linker"](https://users.informatik.haw-hamburg.de/~krabat/FH-Labor/gnupro/5_GNUPro_Utilities/c_Using_LD/ldLinker_scripts.html) a ser utilizado.
 
 
-### Comandos para compilação e escrita em Windows
+### Comandos para compilação
 ```shell
 # Gerar arquivos para a build
-cmake -G Ninja -DSTM32_MODEL=F1 -DCMAKE_TOOLCHAIN_FILE=..\cmake\gcc-arm-none-eabi.cmake ..
-
-# Compilar e gerar aquivo STM32BluePillRadio.elf.
-cmake --build .
-
-# Gerar firmware.
-arm-none-eabi-objcopy -O binary STM32BluePillRadio.elf firmware.bin
-
-# Apagar firmware antigo.
-st-flash erase
-
-# Escrever firmware novo a placa.
-st-flash --reset write firmware.bin 0x08000000
-```
-### Comandos para compilação e escrita em Linux
-```shell
-# Gerar arquivos para a build
-cmake -DSTM32_MODEL=F1 -DCMAKE_TOOLCHAIN_FILE=../cmake/gcc-arm-none-eabi.cmake ..
+cmake -preset=F1 ..
 
 # Compilar e gerar aquivo STM32BluePillRadio.elf.
 cmake --build .

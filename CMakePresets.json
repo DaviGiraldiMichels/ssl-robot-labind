@@ -1,0 +1,25 @@
+{
+    "version": 3,
+    "configurePresets": [
+      {
+        "name": "F1",
+        "displayName": "STM32F103",
+        "generator": "Ninja",
+        "toolchainFile": "./cmake/gcc-arm-none-eabi.cmake",
+        "cacheVariables": {
+          "STM32_CORE": "cortex-m3", 
+          "STM32_MODEL": "F1"
+        }
+      },
+      {
+        "name": "F4",
+        "displayName": "STM32F401xe",
+        "generator": "Ninja",
+        "toolchainFile": "./cmake/gcc-arm-none-eabi.cmake",
+        "cacheVariables": {
+          "STM32_CORE": "cortex-m4", 
+          "STM32_MODEL": "F4"
+        }
+      }
+    ]
+  }
