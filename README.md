@@ -41,13 +41,6 @@ Para realizar a compilação correta da biblioteca RF24, foi utilizado um wrappe
 
 [`gcc-arm-none-eabi.cmake`](./cmake/gcc-arm-none-eabi.cmake) configura as opções de Compilador e do Linker, tal como processador alvo, flags para linkagem e etc..
 [`STM32F103.ld`](./linker/STM32F103.ld) dita ao linker como deve ser a arquitetura e configuração de seções do firmware.
-[`CMakeLists.txt`](CMakeLists.txt) é o arquivo que configura e gera arquivos [Makefile](https://makefiletutorial.com/) para fazer a compilação, nele é setado informações importantes:
-* `set(RF24_DRIVER "STM32")` Especifica o driver para ser utilizado na biblioteca RF24
-* `set(RF24_LINKED_DRIVER "STM32")` Especifica o driver para ser linkado com a biblioteca RF24
-* `set(SOC "cortex-m3")` Especifica a arquitetura e tipo do processador que esta sendo utilizado.
-* `target_compile_definitions(${CMAKE_PROJECT_NAME} PRIVATE STM32=1 STM32F1=1)` Define variável por conta de pré-processadores [Macros](https://gcc.gnu.org/onlinedocs/cpp/Macros.html) internos.
-* `target_link_libraries(${CMAKE_PROJECT_NAME} PRIVATE -T${CMAKE_SOURCE_DIR}/linker/STM32F103.ld)` Especifica qual ["script de linker"](https://users.informatik.haw-hamburg.de/~krabat/FH-Labor/gnupro/5_GNUPro_Utilities/c_Using_LD/ldLinker_scripts.html) a ser utilizado.
-
 
 ### Comandos para compilação
 ```shell
