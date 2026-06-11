@@ -17,13 +17,8 @@ SPI_HandleTypeDef spi1_handle;
 const uint8_t address[5] = {'0', '0', '0', '0', '1'};
 
 void start(void) {
-    LedBlinker led(GPIOC, GPIO_PIN_13);
+    LedBlinker led(GPIOA, GPIO_PIN_4);
 
-    // HAL_SPI_MspInit(SPI1);
-    // __HAL_RCC_SPI1_CLK_ENABLE();
-    // HAL_NVIC_SetPriority(SPI1_IRQn, 0, 0);
-    // HAL_NVIC_EnableIRQ(SPI1_IRQn);
-    
     __HAL_RCC_SPI1_CLK_ENABLE();
     HAL_Delay(1000);
     spi1_handle.Instance = SPI1;
@@ -43,7 +38,7 @@ void start(void) {
     RF24_SPI radio_spi;
     radio_spi.begin(&spi1_handle);
     RF24 radio;
-    if(!radio.begin(&radio_spi, RF24_PA4, RF24_PA3)){
+    if(!radio.begin(&radio_spi, RF24_PC7, RF24_PB6)){
         led.off();
         Error_Handler();
     } else {
