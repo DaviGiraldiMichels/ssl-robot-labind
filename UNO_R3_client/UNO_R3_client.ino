@@ -32,8 +32,7 @@ void setup() {
   radio.setPALevel(RF24_PA_MIN);
   radio.setChannel(120);
   radio.setDataRate(RF24_1MBPS);
-  // Habilita o Auto-Acknowledgement real. Delay de 5*250us, 15 tentativas.
-  radio.setRetries(5, 15);
+  radio.setRetries(0, 0); // Otimiza para controle em tempo real (prefere perder pacote do que atrasar)
   radio.stopListening();
 }
 
