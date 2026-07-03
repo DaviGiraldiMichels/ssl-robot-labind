@@ -1,4 +1,5 @@
-#pragma once
+#ifndef APP_HPP
+#define APP_HPP
 
 #ifdef __cplusplus
 extern "C" {
@@ -8,4 +9,6 @@ void start(void);
 
 #ifdef __cplusplus
 }
+#endif
+
 #endif

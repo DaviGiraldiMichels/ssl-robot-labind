@@ -1,2 +1,19 @@
 build
 .vscode
+# Arquivos de compilação do CMake e Make
+build/
+**/build/
+**/CMakeCache.txt
+**/CMakeFiles/
+**/cmake_install.cmake
+**/Makefile
+
+# Binários e saídas do compilador
+*.elf
+*.bin
+*.o
+*.a
+*.d
+
+# Configurações do VSCode que não devem ser compartilhadas
+.vscode/

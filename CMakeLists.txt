@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.19)
+cmake_minimum_required(VERSION 3.16)
 
 set(CMAKE_C_STANDARD 11)
 set(CMAKE_C_EXTENSIONS ON)
@@ -37,6 +37,9 @@ else()
 	message(FATAL_ERROR "Modelo escolhido '${STM32_MODEL}' sem suporte.\nUse F1 ou F4.")
 endif()
 
+# Força o arquivo de startup a ser compilado pelo GCC (contornando erro de flags no arm-none-eabi-as)
+set_source_files_properties(${STM32_BOOT_src} PROPERTIES LANGUAGE C)
+
 set(RF24_DRIVER "STM32")
 set(RF24_LINKED_DRIVER "STM32")
 set(SOC "${STM32_CORE}")
@@ -63,11 +66,12 @@ target_sources(${CMAKE_PROJECT_NAME} PRIVATE
     ${CMAKE_SOURCE_DIR}/src/app.cpp
     ${CMAKE_SOURCE_DIR}/src/syscalls.c
     ${CMAKE_SOURCE_DIR}/src/sysmem.c
+    ${CMAKE_SOURCE_DIR}/src/ssl_kinematics.c
     ${NRF24_src}
 )
 
 if(${STM32_MODEL} STREQUAL "F1")
-	target_compile_definitions(${CMAKE_PROJECT_NAME} PRIVATE STM32=1 STM32F1=1)
+	target_compile_definitions(${CMAKE_PROJECT_NAME} PRIVATE $<$<COMPILE_LANGUAGE:C,CXX>:STM32=1 STM32F1=1>)
 	target_sources(${CMAKE_PROJECT_NAME} PRIVATE ${CMAKE_SOURCE_DIR}/src/setup_f1.c)
 	target_link_libraries(${CMAKE_PROJECT_NAME} PRIVATE -T${CMAKE_SOURCE_DIR}/linker/STM32F103.ld)
 	include_directories(./Drivers/STM32F1xx_HAL_Driver/Inc)
@@ -88,7 +92,7 @@ elseif(${STM32_MODEL} STREQUAL "F3")
 	# include_directories(./Drivers/STM32F3xx_HAL_Driver/Inc/Legacy)
 	# include_directories(./Drivers/CMSIS/Device/ST/STM32F3xx/Include)
 elseif(${STM32_MODEL} STREQUAL "F4")
-	target_compile_definitions(${CMAKE_PROJECT_NAME} PRIVATE STM32=1 STM32F4=1 STM32F401xE=1)
+	target_compile_definitions(${CMAKE_PROJECT_NAME} PRIVATE $<$<COMPILE_LANGUAGE:C,CXX>:STM32=1 STM32F4=1 STM32F401xE=1>)
 	target_compile_options(${CMAKE_PROJECT_NAME} PRIVATE -g)
 	target_sources(${CMAKE_PROJECT_NAME} PRIVATE ${CMAKE_SOURCE_DIR}/src/setup_f4.c)
 	target_link_libraries(${CMAKE_PROJECT_NAME} PRIVATE -T${CMAKE_SOURCE_DIR}/linker/STM32F401RETX_FLASH.ld)

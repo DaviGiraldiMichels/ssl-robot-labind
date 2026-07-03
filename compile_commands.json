@@ -1,0 +1,121 @@
+[
+{
+  "directory": "/home/udesc/Conexao_SSL/RadioComm",
+  "command": "/usr/bin/arm-none-eabi-gcc -DSTM32=1 -DSTM32F401xE=1 -DSTM32F4=1 -IDrivers/RF24 -I./Drivers/STM32F4xx_HAL_Driver/Inc -I./Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I./Drivers/CMSIS/Device/ST/STM32F4xx/Include -I./include -I./Drivers/CMSIS/Include  -mcpu=cortex-m4 -mthumb -fdata-sections -ffunction-sections -MMD -MP -Wall -Wextra -Wfatal-errors -Wno-unused-parameter -Werror   -g -std=gnu11 -o CMakeFiles/STM32BluePillRadio.dir/Drivers/CMSIS/Device/ST/STM32F4xx/Source/Templates/system_stm32f4xx.c.obj   -c /home/udesc/Conexao_SSL/RadioComm/Drivers/CMSIS/Device/ST/STM32F4xx/Source/Templates/system_stm32f4xx.c",
+  "file": "/home/udesc/Conexao_SSL/RadioComm/Drivers/CMSIS/Device/ST/STM32F4xx/Source/Templates/system_stm32f4xx.c"
+},
+
+{
+  "directory": "/home/udesc/Conexao_SSL/RadioComm",
+  "command": "/usr/bin/arm-none-eabi-gcc -DSTM32=1 -DSTM32F401xE=1 -DSTM32F4=1 -IDrivers/RF24 -I./Drivers/STM32F4xx_HAL_Driver/Inc -I./Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I./Drivers/CMSIS/Device/ST/STM32F4xx/Include -I./include -I./Drivers/CMSIS/Include  -mcpu=cortex-m4 -mthumb -fdata-sections -ffunction-sections -MMD -MP -Wall -Wextra -Wfatal-errors -Wno-unused-parameter -Werror   -g -std=gnu11 -o CMakeFiles/STM32BluePillRadio.dir/Drivers/CMSIS/Device/ST/STM32F4xx/Source/Templates/gcc/startup_stm32f401xe.s.obj   -c /home/udesc/Conexao_SSL/RadioComm/Drivers/CMSIS/Device/ST/STM32F4xx/Source/Templates/gcc/startup_stm32f401xe.s",
+  "file": "/home/udesc/Conexao_SSL/RadioComm/Drivers/CMSIS/Device/ST/STM32F4xx/Source/Templates/gcc/startup_stm32f401xe.s"
+},
+
+{
+  "directory": "/home/udesc/Conexao_SSL/RadioComm",
+  "command": "/usr/bin/arm-none-eabi-gcc -DSTM32=1 -DSTM32F401xE=1 -DSTM32F4=1 -IDrivers/RF24 -I./Drivers/STM32F4xx_HAL_Driver/Inc -I./Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I./Drivers/CMSIS/Device/ST/STM32F4xx/Include -I./include -I./Drivers/CMSIS/Include  -mcpu=cortex-m4 -mthumb -fdata-sections -ffunction-sections -MMD -MP -Wall -Wextra -Wfatal-errors -Wno-unused-parameter -Werror   -g -std=gnu11 -o CMakeFiles/STM32BluePillRadio.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c.obj   -c /home/udesc/Conexao_SSL/RadioComm/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c",
+  "file": "/home/udesc/Conexao_SSL/RadioComm/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c"
+},
+
+{
+  "directory": "/home/udesc/Conexao_SSL/RadioComm",
+  "command": "/usr/bin/arm-none-eabi-gcc -DSTM32=1 -DSTM32F401xE=1 -DSTM32F4=1 -IDrivers/RF24 -I./Drivers/STM32F4xx_HAL_Driver/Inc -I./Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I./Drivers/CMSIS/Device/ST/STM32F4xx/Include -I./include -I./Drivers/CMSIS/Include  -mcpu=cortex-m4 -mthumb -fdata-sections -ffunction-sections -MMD -MP -Wall -Wextra -Wfatal-errors -Wno-unused-parameter -Werror   -g -std=gnu11 -o CMakeFiles/STM32BluePillRadio.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c.obj   -c /home/udesc/Conexao_SSL/RadioComm/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c",
+  "file": "/home/udesc/Conexao_SSL/RadioComm/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c"
+},
+
+{
+  "directory": "/home/udesc/Conexao_SSL/RadioComm",
+  "command": "/usr/bin/arm-none-eabi-gcc -DSTM32=1 -DSTM32F401xE=1 -DSTM32F4=1 -IDrivers/RF24 -I./Drivers/STM32F4xx_HAL_Driver/Inc -I./Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I./Drivers/CMSIS/Device/ST/STM32F4xx/Include -I./include -I./Drivers/CMSIS/Include  -mcpu=cortex-m4 -mthumb -fdata-sections -ffunction-sections -MMD -MP -Wall -Wextra -Wfatal-errors -Wno-unused-parameter -Werror   -g -std=gnu11 -o CMakeFiles/STM32BluePillRadio.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c.obj   -c /home/udesc/Conexao_SSL/RadioComm/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c",
+  "file": "/home/udesc/Conexao_SSL/RadioComm/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c"
+},
+
+{
+  "directory": "/home/udesc/Conexao_SSL/RadioComm",
+  "command": "/usr/bin/arm-none-eabi-gcc -DSTM32=1 -DSTM32F401xE=1 -DSTM32F4=1 -IDrivers/RF24 -I./Drivers/STM32F4xx_HAL_Driver/Inc -I./Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I./Drivers/CMSIS/Device/ST/STM32F4xx/Include -I./include -I./Drivers/CMSIS/Include  -mcpu=cortex-m4 -mthumb -fdata-sections -ffunction-sections -MMD -MP -Wall -Wextra -Wfatal-errors -Wno-unused-parameter -Werror   -g -std=gnu11 -o CMakeFiles/STM32BluePillRadio.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c.obj   -c /home/udesc/Conexao_SSL/RadioComm/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c",
+  "file": "/home/udesc/Conexao_SSL/RadioComm/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c"
+},
+
+{
+  "directory": "/home/udesc/Conexao_SSL/RadioComm",
+  "command": "/usr/bin/arm-none-eabi-gcc -DSTM32=1 -DSTM32F401xE=1 -DSTM32F4=1 -IDrivers/RF24 -I./Drivers/STM32F4xx_HAL_Driver/Inc -I./Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I./Drivers/CMSIS/Device/ST/STM32F4xx/Include -I./include -I./Drivers/CMSIS/Include  -mcpu=cortex-m4 -mthumb -fdata-sections -ffunction-sections -MMD -MP -Wall -Wextra -Wfatal-errors -Wno-unused-parameter -Werror   -g -std=gnu11 -o CMakeFiles/STM32BluePillRadio.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c.obj   -c /home/udesc/Conexao_SSL/RadioComm/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c",
+  "file": "/home/udesc/Conexao_SSL/RadioComm/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c"
+},
+
+{
+  "directory": "/home/udesc/Conexao_SSL/RadioComm",
+  "command": "/usr/bin/arm-none-eabi-gcc -DSTM32=1 -DSTM32F401xE=1 -DSTM32F4=1 -IDrivers/RF24 -I./Drivers/STM32F4xx_HAL_Driver/Inc -I./Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I./Drivers/CMSIS/Device/ST/STM32F4xx/Include -I./include -I./Drivers/CMSIS/Include  -mcpu=cortex-m4 -mthumb -fdata-sections -ffunction-sections -MMD -MP -Wall -Wextra -Wfatal-errors -Wno-unused-parameter -Werror   -g -std=gnu11 -o CMakeFiles/STM32BluePillRadio.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c.obj   -c /home/udesc/Conexao_SSL/RadioComm/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c",
+  "file": "/home/udesc/Conexao_SSL/RadioComm/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c"
+},
+
+{
+  "directory": "/home/udesc/Conexao_SSL/RadioComm",
+  "command": "/usr/bin/arm-none-eabi-gcc -DSTM32=1 -DSTM32F401xE=1 -DSTM32F4=1 -IDrivers/RF24 -I./Drivers/STM32F4xx_HAL_Driver/Inc -I./Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I./Drivers/CMSIS/Device/ST/STM32F4xx/Include -I./include -I./Drivers/CMSIS/Include  -mcpu=cortex-m4 -mthumb -fdata-sections -ffunction-sections -MMD -MP -Wall -Wextra -Wfatal-errors -Wno-unused-parameter -Werror   -g -std=gnu11 -o CMakeFiles/STM32BluePillRadio.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_usart.c.obj   -c /home/udesc/Conexao_SSL/RadioComm/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_usart.c",
+  "file": "/home/udesc/Conexao_SSL/RadioComm/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_usart.c"
+},
+
+{
+  "directory": "/home/udesc/Conexao_SSL/RadioComm",
+  "command": "/usr/bin/arm-none-eabi-gcc -DSTM32=1 -DSTM32F401xE=1 -DSTM32F4=1 -IDrivers/RF24 -I./Drivers/STM32F4xx_HAL_Driver/Inc -I./Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I./Drivers/CMSIS/Device/ST/STM32F4xx/Include -I./include -I./Drivers/CMSIS/Include  -mcpu=cortex-m4 -mthumb -fdata-sections -ffunction-sections -MMD -MP -Wall -Wextra -Wfatal-errors -Wno-unused-parameter -Werror   -g -std=gnu11 -o CMakeFiles/STM32BluePillRadio.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c.obj   -c /home/udesc/Conexao_SSL/RadioComm/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c",
+  "file": "/home/udesc/Conexao_SSL/RadioComm/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c"
+},
+
+{
+  "directory": "/home/udesc/Conexao_SSL/RadioComm",
+  "command": "/usr/bin/arm-none-eabi-gcc -DSTM32=1 -DSTM32F401xE=1 -DSTM32F4=1 -IDrivers/RF24 -I./Drivers/STM32F4xx_HAL_Driver/Inc -I./Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I./Drivers/CMSIS/Device/ST/STM32F4xx/Include -I./include -I./Drivers/CMSIS/Include  -mcpu=cortex-m4 -mthumb -fdata-sections -ffunction-sections -MMD -MP -Wall -Wextra -Wfatal-errors -Wno-unused-parameter -Werror   -g -std=gnu11 -o CMakeFiles/STM32BluePillRadio.dir/src/main.c.obj   -c /home/udesc/Conexao_SSL/RadioComm/src/main.c",
+  "file": "/home/udesc/Conexao_SSL/RadioComm/src/main.c"
+},
+
+{
+  "directory": "/home/udesc/Conexao_SSL/RadioComm",
+  "command": "/usr/bin/arm-none-eabi-g++  -DSTM32=1 -DSTM32F401xE=1 -DSTM32F4=1 -IDrivers/RF24 -I./Drivers/STM32F4xx_HAL_Driver/Inc -I./Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I./Drivers/CMSIS/Device/ST/STM32F4xx/Include -I./include -I./Drivers/CMSIS/Include  -mcpu=cortex-m4 -mthumb -fdata-sections -ffunction-sections -MMD -MP -Wall -Wextra -Wfatal-errors -Wno-unused-parameter -Werror   -g -std=gnu++17 -o CMakeFiles/STM32BluePillRadio.dir/src/app.cpp.obj -c /home/udesc/Conexao_SSL/RadioComm/src/app.cpp",
+  "file": "/home/udesc/Conexao_SSL/RadioComm/src/app.cpp"
+},
+
+{
+  "directory": "/home/udesc/Conexao_SSL/RadioComm",
+  "command": "/usr/bin/arm-none-eabi-gcc -DSTM32=1 -DSTM32F401xE=1 -DSTM32F4=1 -IDrivers/RF24 -I./Drivers/STM32F4xx_HAL_Driver/Inc -I./Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I./Drivers/CMSIS/Device/ST/STM32F4xx/Include -I./include -I./Drivers/CMSIS/Include  -mcpu=cortex-m4 -mthumb -fdata-sections -ffunction-sections -MMD -MP -Wall -Wextra -Wfatal-errors -Wno-unused-parameter -Werror   -g -std=gnu11 -o CMakeFiles/STM32BluePillRadio.dir/src/syscalls.c.obj   -c /home/udesc/Conexao_SSL/RadioComm/src/syscalls.c",
+  "file": "/home/udesc/Conexao_SSL/RadioComm/src/syscalls.c"
+},
+
+{
+  "directory": "/home/udesc/Conexao_SSL/RadioComm",
+  "command": "/usr/bin/arm-none-eabi-gcc -DSTM32=1 -DSTM32F401xE=1 -DSTM32F4=1 -IDrivers/RF24 -I./Drivers/STM32F4xx_HAL_Driver/Inc -I./Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I./Drivers/CMSIS/Device/ST/STM32F4xx/Include -I./include -I./Drivers/CMSIS/Include  -mcpu=cortex-m4 -mthumb -fdata-sections -ffunction-sections -MMD -MP -Wall -Wextra -Wfatal-errors -Wno-unused-parameter -Werror   -g -std=gnu11 -o CMakeFiles/STM32BluePillRadio.dir/src/sysmem.c.obj   -c /home/udesc/Conexao_SSL/RadioComm/src/sysmem.c",
+  "file": "/home/udesc/Conexao_SSL/RadioComm/src/sysmem.c"
+},
+
+{
+  "directory": "/home/udesc/Conexao_SSL/RadioComm",
+  "command": "/usr/bin/arm-none-eabi-gcc -DSTM32=1 -DSTM32F401xE=1 -DSTM32F4=1 -IDrivers/RF24 -I./Drivers/STM32F4xx_HAL_Driver/Inc -I./Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I./Drivers/CMSIS/Device/ST/STM32F4xx/Include -I./include -I./Drivers/CMSIS/Include  -mcpu=cortex-m4 -mthumb -fdata-sections -ffunction-sections -MMD -MP -Wall -Wextra -Wfatal-errors -Wno-unused-parameter -Werror   -g -std=gnu11 -o CMakeFiles/STM32BluePillRadio.dir/src/ssl_kinematics.c.obj   -c /home/udesc/Conexao_SSL/RadioComm/src/ssl_kinematics.c",
+  "file": "/home/udesc/Conexao_SSL/RadioComm/src/ssl_kinematics.c"
+},
+
+{
+  "directory": "/home/udesc/Conexao_SSL/RadioComm",
+  "command": "/usr/bin/arm-none-eabi-g++  -DSTM32=1 -DSTM32F401xE=1 -DSTM32F4=1 -IDrivers/RF24 -I./Drivers/STM32F4xx_HAL_Driver/Inc -I./Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I./Drivers/CMSIS/Device/ST/STM32F4xx/Include -I./include -I./Drivers/CMSIS/Include  -mcpu=cortex-m4 -mthumb -fdata-sections -ffunction-sections -MMD -MP -Wall -Wextra -Wfatal-errors -Wno-unused-parameter -Werror   -g -std=gnu++17 -o CMakeFiles/STM32BluePillRadio.dir/Drivers/RF24/RF24.cpp.obj -c /home/udesc/Conexao_SSL/RadioComm/Drivers/RF24/RF24.cpp",
+  "file": "/home/udesc/Conexao_SSL/RadioComm/Drivers/RF24/RF24.cpp"
+},
+
+{
+  "directory": "/home/udesc/Conexao_SSL/RadioComm",
+  "command": "/usr/bin/arm-none-eabi-g++  -DSTM32=1 -DSTM32F401xE=1 -DSTM32F4=1 -IDrivers/RF24 -I./Drivers/STM32F4xx_HAL_Driver/Inc -I./Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I./Drivers/CMSIS/Device/ST/STM32F4xx/Include -I./include -I./Drivers/CMSIS/Include  -mcpu=cortex-m4 -mthumb -fdata-sections -ffunction-sections -MMD -MP -Wall -Wextra -Wfatal-errors -Wno-unused-parameter -Werror   -g -std=gnu++17 -o CMakeFiles/STM32BluePillRadio.dir/Drivers/RF24/utility/STM32/compatibility.cpp.obj -c /home/udesc/Conexao_SSL/RadioComm/Drivers/RF24/utility/STM32/compatibility.cpp",
+  "file": "/home/udesc/Conexao_SSL/RadioComm/Drivers/RF24/utility/STM32/compatibility.cpp"
+},
+
+{
+  "directory": "/home/udesc/Conexao_SSL/RadioComm",
+  "command": "/usr/bin/arm-none-eabi-g++  -DSTM32=1 -DSTM32F401xE=1 -DSTM32F4=1 -IDrivers/RF24 -I./Drivers/STM32F4xx_HAL_Driver/Inc -I./Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I./Drivers/CMSIS/Device/ST/STM32F4xx/Include -I./include -I./Drivers/CMSIS/Include  -mcpu=cortex-m4 -mthumb -fdata-sections -ffunction-sections -MMD -MP -Wall -Wextra -Wfatal-errors -Wno-unused-parameter -Werror   -g -std=gnu++17 -o CMakeFiles/STM32BluePillRadio.dir/Drivers/RF24/utility/STM32/gpio.cpp.obj -c /home/udesc/Conexao_SSL/RadioComm/Drivers/RF24/utility/STM32/gpio.cpp",
+  "file": "/home/udesc/Conexao_SSL/RadioComm/Drivers/RF24/utility/STM32/gpio.cpp"
+},
+
+{
+  "directory": "/home/udesc/Conexao_SSL/RadioComm",
+  "command": "/usr/bin/arm-none-eabi-g++  -DSTM32=1 -DSTM32F401xE=1 -DSTM32F4=1 -IDrivers/RF24 -I./Drivers/STM32F4xx_HAL_Driver/Inc -I./Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I./Drivers/CMSIS/Device/ST/STM32F4xx/Include -I./include -I./Drivers/CMSIS/Include  -mcpu=cortex-m4 -mthumb -fdata-sections -ffunction-sections -MMD -MP -Wall -Wextra -Wfatal-errors -Wno-unused-parameter -Werror   -g -std=gnu++17 -o CMakeFiles/STM32BluePillRadio.dir/Drivers/RF24/utility/STM32/spi.cpp.obj -c /home/udesc/Conexao_SSL/RadioComm/Drivers/RF24/utility/STM32/spi.cpp",
+  "file": "/home/udesc/Conexao_SSL/RadioComm/Drivers/RF24/utility/STM32/spi.cpp"
+},
+
+{
+  "directory": "/home/udesc/Conexao_SSL/RadioComm",
+  "command": "/usr/bin/arm-none-eabi-gcc -DSTM32=1 -DSTM32F401xE=1 -DSTM32F4=1 -IDrivers/RF24 -I./Drivers/STM32F4xx_HAL_Driver/Inc -I./Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I./Drivers/CMSIS/Device/ST/STM32F4xx/Include -I./include -I./Drivers/CMSIS/Include  -mcpu=cortex-m4 -mthumb -fdata-sections -ffunction-sections -MMD -MP -Wall -Wextra -Wfatal-errors -Wno-unused-parameter -Werror   -g -std=gnu11 -o CMakeFiles/STM32BluePillRadio.dir/src/setup_f4.c.obj   -c /home/udesc/Conexao_SSL/RadioComm/src/setup_f4.c",
+  "file": "/home/udesc/Conexao_SSL/RadioComm/src/setup_f4.c"
+}
+]
