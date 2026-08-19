@@ -61,25 +61,40 @@ void SSL_Robot_Move(float vx, float vy, float omega) {
      * Com base nos testes, o neutro real é ~1490us e a deadzone vai de 1465 a 1515.
      */
     #define REAL_NEUTRAL 1490
-    #define DEADZONE_FWD 25  // 1515 - 1490
-    #define DEADZONE_BWD -25 // 1465 - 1490
+    #define DEADZONE_OFFSET 60 // Ponto onde o motor começa a girar (1490 + 25 = 1515)
+    #define KICK_START_OFFSET 200 // "Chute" extra para vencer o atrito (1490 + 80 = 1570)
     #define GAIN 150.0f
 
     int16_t dev1 = (int16_t)(v1 * GAIN);
     int16_t dev2 = (int16_t)(v2 * GAIN);
     int16_t dev3 = (int16_t)(v3 * GAIN);
     int16_t dev4 = (int16_t)(v4 * GAIN);
+    
+    // Variáveis para guardar o estado anterior de cada motor (0=parado, 1=frente, -1=ré)
+    static int8_t last_state[4] = {0};
 
-    // Se a velocidade for pequena, mas não zero, "pula" a deadzone
-    if (dev1 > 0) dev1 += DEADZONE_FWD; else if (dev1 < 0) dev1 += DEADZONE_BWD;
-    if (dev2 > 0) dev2 += DEADZONE_FWD; else if (dev2 < 0) dev2 += DEADZONE_BWD;
-    if (dev3 > 0) dev3 += DEADZONE_FWD; else if (dev3 < 0) dev3 += DEADZONE_BWD;
-    if (dev4 > 0) dev4 += DEADZONE_FWD; else if (dev4 < 0) dev4 += DEADZONE_BWD;
+    // Função auxiliar para aplicar a lógica de Kick-Start
+    int16_t apply_kick_start(int16_t current_dev, int8_t *last_motor_state) {
+        int8_t current_state = (current_dev > 0) ? 1 : ((current_dev < 0) ? -1 : 0);
+        
+        // Se o motor estava parado e agora vai se mover...
+        if (*last_motor_state == 0 && current_state != 0) {
+            // ...aplica o "chute" inicial
+            if (current_state > 0) return current_dev + KICK_START_OFFSET;
+            else return current_dev - KICK_START_OFFSET;
+        } else {
+            // ...senão, aplica apenas a compensação normal da deadzone
+            if (current_state > 0) return current_dev + DEADZONE_OFFSET;
+            else if (current_state < 0) return current_dev - DEADZONE_OFFSET;
+            else return 0; // Garante que o motor pare em 0
+        }
+        *last_motor_state = current_state; // Atualiza o estado para a próxima chamada
+    }
 
-    uint16_t pulse_m1 = REAL_NEUTRAL + dev1;
-    uint16_t pulse_m2 = REAL_NEUTRAL + dev2;
-    uint16_t pulse_m3 = REAL_NEUTRAL + dev3;
-    uint16_t pulse_m4 = REAL_NEUTRAL + dev4;
+    uint16_t pulse_m1 = REAL_NEUTRAL + apply_kick_start(dev1, &last_state[0]);
+    uint16_t pulse_m2 = REAL_NEUTRAL + apply_kick_start(dev2, &last_state[1]);
+    uint16_t pulse_m3 = REAL_NEUTRAL + apply_kick_start(dev3, &last_state[2]);
+    uint16_t pulse_m4 = REAL_NEUTRAL + apply_kick_start(dev4, &last_state[3]);
 
     // Silencia os avisos de 'variável não utilizada' para os motores que não estão sendo testados
     // UNUSED(pulse_m1);
@@ -95,4 +110,5 @@ void SSL_Robot_Move(float vx, float vy, float omega) {
     // SSL_Motors_SetPulses(ESC_PULSE_NEUTRAL, ESC_PULSE_NEUTRAL, pulse_m3, ESC_PULSE_NEUTRAL); // Testa apenas o Motor 3
     // SSL_Motors_SetPulses(ESC_PULSE_NEUTRAL, ESC_PULSE_NEUTRAL, ESC_PULSE_NEUTRAL, pulse_m4); // Testa apenas o Motor 4
     SSL_Motors_SetPulses(pulse_m1, pulse_m2, pulse_m3, pulse_m4); // Linha original para operação normal
+
 }

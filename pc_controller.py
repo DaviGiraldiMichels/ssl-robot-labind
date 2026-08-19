@@ -83,10 +83,10 @@ def main():
                 v3 /= max_val
                 v4 /= max_val
 
-            m1_pwm = 1500 + int(v1 * 125.0)
-            m2_pwm = 1500 + int(v2 * 125.0)
-            m3_pwm = 1500 + int(v3 * 125.0)
-            m4_pwm = 1500 + int(v4 * 125.0)
+            m1_pwm = 1500 + int(v1 * 200.0)
+            m2_pwm = 1500 + int(v2 * 200.0)
+            m3_pwm = 1500 + int(v3 * 200.0)
+            m4_pwm = 1500 + int(v4 * 200.0)
 
             # Empacota com Cabeçalho de Sincronia (0xAA, 0x55)
             # '<BBfff' significa: < (Little Endian), 2 unsigned chars, 3 floats = 14 bytes
