@@ -1,61 +1,74 @@
-# RadioComm
-Este projeto tem como objetivo mostrar a capacidade de uma placa <small>_[STM32F103C8T6](https://www.st.com/en/microcontrollers-microprocessors/stm32f103c8.html)_</small> se comunicar com uma placa <small>_[Arduino Uno R3](https://docs.arduino.cc/hardware/uno-rev3/)_</small> via rádio, usando transceivers <small>_[nRF24l01](https://cdn.sparkfun.com/datasheets/Wireless/Nordic/nRF24L01_Product_Specification_v2_0.pdf)_</small>. O Projeto utiliza da biblioteca <small>_[RF24](https://github.com/nRF24/RF24/tree/stm32cube-support)_</small> para fazer a comunicação entre as placas com o transceiver.
+# Sistema de Controle e Comunicação via nRF24L01 (Robô Móvel SSL)
+
+Este projeto demonstra o controle remoto e em tempo real de um robô omnidirecional da categoria *Small Size League* (SSL). O sistema utiliza comunicação via rádio frequência (RF) estruturada em múltiplas etapas, indo desde um controlador no PC até o acionamento de motores Brushless.
+
+Originalmente concebido para validar a comunicação básica entre um Arduino Uno e um STM32F103 via transceivers <small>_[nRF24l01](https://cdn.sparkfun.com/datasheets/Wireless/Nordic/nRF24L01_Product_Specification_v2_0.pdf)_</small>, o projeto foi expandido para atuar como o sistema de tração e cinemática de uma plataforma robótica.
 
 <div style="display:flex; gap:12px; align-items:center;">
-    <img src="./images/STM32F103C8T6.jpg" alt="STM32F103C8T6" width="200" />
-    <img src="./images/ARDUINO_R3.png" alt="Arduino Uno R3" width="200" />
-    <img src="./images/nRF24l01.png" alt="STM32F103C8T6" width="200" />
-    <img src="./images/nRF24l01-Adapter.jpg" alt="STM32F103C8T6" width="200" />
+    <img src="./images/STM32F401RE.jpg" alt="STM32F401RE Nucleo" width="150" />
+    <img src="./images/ARDUINO_R3.png" alt="Arduino Uno R3" width="150" />
+    <img src="./images/nRF24l01.png" alt="nRF24l01" width="150" />
 </div>
 
-## Configuração dos Pinos:
+## 🚀 Arquitetura do Sistema
 
-### STM32F103C8T6:
-> <small>_Para fazer a comunicação correta entre a placa stm32 e o transceiver é necessário um adaptador, pois o regulador de tensão no stm32 não é capaz de fornecer energia ao nRF24l01._</small>*
+O fluxo de comando bidirecional foi projetado para garantir baixa latência e segurança de hardware:
 
-| Função        | STM32F103C8T6 |
-|---------------|---------------|
-| CE            | A3            |
-| CSN           | A4            |
-| CSK           | A5            |
-| MOSI          | A7            |
-| MISO          | A6            |
+1. **Controle via PC (`pc_controller.py`):** Um script em Python lê os comandos de velocidade/direção (joystick/teclado) e os envia via serial para o Arduino, utilizando um cabeçalho de sincronia (`0xAA`, `0x55`).
+2. **Nó Transmissor (Arduino Uno):** Recebe os pacotes seriais do PC e os transmite via rádio (nRF24L01). Também gerencia o status de *ACK* da comunicação e retorna logs de debug para o Python.
+3. **Nó Receptor e Controlador (STM32F401RE):** Recebe os vetores de velocidade desejados via rádio.
+4. **Cinemática e Atuação (`ssl_kinematics.c`):** O STM32 calcula a matriz cinemática para as rodas omnidirecionais e gera sinais PWM (50Hz) isolados via optoacopladores (PC817) para comandar 4 ESCs bidirecionais (LittleBee 30A).
 
-### Arduino Uno:
-| Função        | Arduino UNO   |
+### 🛡️ Failsafe de Comunicação
+Implementado nativamente no firmware do STM32: a ausência de pacotes RF válidos por mais de **200ms** aciona uma parada de emergência automática (motores enviados para 1500us - neutro).
+
+---
+
+## 🔌 Configuração de Hardware e Pinos
+
+### Nó Receptor: STM32F401RE (Placa Nucleo-64)
+*Os pinos de sinal dos motores estão isolados da lógica via optoacopladores PC817 para evitar ruído elétrico dos ESCs.*
+
+| Função / Periférico | Pino STM32F401RE | Observação |
+|---------------------|------------------|------------|
+| **SPI (nRF24)**     | D9 a D13         | Comunicação com o rádio |
+| **PWM Motor 1**     | PA0 (TIM2/3)     | Sinal para ESC 1 |
+| **PWM Motor 2**     | PA1 (TIM2/3)     | Sinal para ESC 2 |
+| **PWM Motor 3**     | PB10 (TIM2/3)    | Sinal para ESC 3 |
+| **PWM Motor 4**     | PB0 (TIM2/3)     | Sinal para ESC 4 |
+
+### Nó Transmissor: Arduino Uno
+| Função SPI    | Pino Arduino  |
 |---------------|---------------|
 | CE            | 7             |
 | CSN           | 8             |
-| CSK           | 13            |
 | MOSI          | 11            |
 | MISO          | 12            |
+| CSK           | 13            |
 
-## Ferramentas necessárias:
+---
+
+## 🛠️ Ferramentas Necessárias e Build
+
+- [Python 3.x](https://www.python.org/) (Para rodar o `pc_controller.py`)
 - [Arm GNU Toolchain](https://developer.arm.com/downloads/-/arm-gnu-toolchain-downloads)
 - [CMake](https://cmake.org/)
-- [STLINK Tools](https://github.com/stlink-org/stlink) Versão OpenSource.
+- [STLINK Tools](https://github.com/stlink-org/stlink)
 
+### Compilação do Firmware (STM32)
 
-## Compilação
-Para realizar a compilação correta da biblioteca RF24, foi utilizado um wrapper em C. Devido de como o código é gerado, o linker não consegue ligar diretamente ao [_entrypoint_](https://en.wikipedia.org/wiki/Entry_point) do objeto gerado com C++. 
+A biblioteca base de RF utiliza um wrapper em C. Os arquivos `gcc-arm-none-eabi.cmake` e o script de linker configuram a arquitetura do firmware.
 
-[`gcc-arm-none-eabi.cmake`](./cmake/gcc-arm-none-eabi.cmake) configura as opções de Compilador e do Linker, tal como processador alvo, flags para linkagem e etc..
-[`STM32F103.ld`](./linker/STM32F103.ld) dita ao linker como deve ser a arquitetura e configuração de seções do firmware.
-
-### Comandos para compilação
 ```shell
 # Gerar arquivos para a build
 cmake -preset=F1 ..
 
-# Compilar e gerar aquivo STM32BluePillRadio.elf.
+# Compilar e gerar aquivo .elf.
 cmake --build .
 
-# Gerar firmware.
-arm-none-eabi-objcopy -O binary STM32BluePillRadio.elf firmware.bin
+# Converter para binário.
+arm-none-eabi-objcopy -O binary STM32_RobotController.elf firmware.bin
 
-# Apagar firmware antigo.
+# Apagar firmware antigo e flashear novo.
 st-flash erase
-
-# Escrever firmware novo a placa.
 st-flash --reset write firmware.bin 0x08000000
-```
